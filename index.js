@@ -27,3 +27,14 @@ inquirer.prompt([
   //process user input
   console.log(answers);
 });
+
+
+//Generate SVG File
+const fs = require('fs');
+const generateSVG = require('./generateSVG');
+inquirer.prompt(/* ... */).then((answers) => {
+  //add generate svg function
+  const svgContent = generateSVG(answers); 
+  fs.writeFileSync('logo.svg', svgContent);
+  console.log('Generated logo.svg');
+});
