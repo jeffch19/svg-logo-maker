@@ -1,5 +1,7 @@
 // User input section
 const inquirer = require('inquirer');
+const fs = require('fs');
+const generateSVG = require('./generateSVG');
 
 inquirer.prompt([
   {
@@ -24,17 +26,12 @@ inquirer.prompt([
     message: 'Enter shape color (keyword or hexadecimal):'
   }
 ]).then((answers) => {
-  //process user input
-  console.log(answers);
-});
+  // Process user input
+  console.log('User Input:', answers);
 
 
 //Generate SVG File
-const fs = require('fs');
-const generateSVG = require('./generateSVG');
-inquirer.prompt(/* ... */).then((answers) => {
-  //add generate svg function
-  const svgContent = generateSVG(answers); 
-  fs.writeFileSync('logo.svg', svgContent);
-  console.log('Generated logo.svg');
+const svgContent = generateSVG(answers); 
+fs.writeFileSync('logo.svg', svgContent);
+console.log('Generated logo.svg');
 });
