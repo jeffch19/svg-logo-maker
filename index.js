@@ -27,11 +27,10 @@ inquirer.prompt([
   }
 ]).then((answers) => {
   // Process user input
-  console.log('User Input:', answers);
+  console.log(answers);
 
-
-//Generate SVG File
-const svgContent = generateSVG(answers); 
-fs.writeFileSync('logo.svg', svgContent);
-console.log('Generated logo.svg');
+  // Generate SVG File
+  const svgContent = generateSVG(answers);
+  fs.writeFileSync('logo.svg', svgContent);
+  console.log('Generated logo.svg');
 });
