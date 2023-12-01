@@ -27,7 +27,7 @@ function generateSVG(userInput) {
   // Set properties for the shape instance
   shapeInstance.setText(text);
   shapeInstance.setTextColor(textColor);
-  shapeInstance.setShapeColor(shapeColor);
+  shapeInstance.setColor(shapeColor);
 
   // Generate SVG string
   const svgContent = shapeInstance.render();
